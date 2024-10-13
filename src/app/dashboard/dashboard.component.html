@@ -1,0 +1,22 @@
+<h3>{{ appRoutesNames.DASHBOARD.label }}</h3>
+<hr />
+<p>
+  <small>
+    I created this code showcase with the intention of demonstrating some code
+    in action.
+    <br />
+    Here there are a series of self-contained functionalities, components or
+    mini-applications, each fulfilling a specific purpose.
+    <br />
+    The idea was to demonstrate, in a mini-atmosphere, some solutions created in
+    the applications I worked on.
+  </small>
+</p>
+<ul class="p-0" style="list-style: none;">
+  <li *ngFor="let ar of appRoutes" class="mb-2">
+    <a [routerLink]="'/' + ar.route" class="btn btn-primary pr-1"
+      >{{ ar.label }}
+      <i class="bi bi-chevron-right"></i>
+    </a>
+  </li>
+</ul>

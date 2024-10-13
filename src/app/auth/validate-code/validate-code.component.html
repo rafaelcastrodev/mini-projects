@@ -1,0 +1,33 @@
+<form
+  (ngSubmit)="onSubmit()"
+  autocomplete="off"
+  novalidate
+  [formGroup]="form"
+  class="card"
+>
+  <div class="card-body">
+    <h2 class="text-center">VALIDATE CODE</h2>
+    <div class="mb-2">
+      <label for="code" class="form-label fw-semibold">Validation Code</label>
+      <input
+        #codeInput
+        id="code"
+        formControlName="code"
+        class="form-control text-center input-number-only"
+        maxlength="6"
+        max="999999"
+        type="number"
+        placeholder="0 0 0 0 0 0"
+        autocomplete="false"
+      />
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary mt-3 w-100"
+      [disabled]="form.invalid"
+    >
+      Validate
+    </button>
+  </div>
+</form>

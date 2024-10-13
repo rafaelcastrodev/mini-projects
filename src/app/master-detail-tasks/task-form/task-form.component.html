@@ -1,0 +1,14 @@
+<div class="d-flex justify-content-between">
+  <h3>Task Form {{ isNewTask ? '(New)' : '' }}</h3>
+  <a [routerLink]="'/' + appRoutes.TASKS.route" class="btn btn-secondary">
+    <i class="bi bi-chevron-left"></i>Back
+  </a>
+</div>
+<hr />
+
+<h5 *ngIf="task?.id">ID: {{ task?.id }}</h5>
+
+<div class="mb-2">
+  <label for="description" class="form-label fw-semibold">Description</label>
+  <textarea id="description" class="form-control"></textarea>
+</div>

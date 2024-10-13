@@ -1,0 +1,62 @@
+<form
+  (ngSubmit)="onSubmit()"
+  autocomplete="off"
+  novalidate
+  [formGroup]="form"
+  class="card"
+>
+  <div class="card-body">
+    <h2 class="text-center">SIGN-UP</h2>
+    <div class="mb-2">
+      <label for="fullname" class="form-label fw-semibold">Full Name</label>
+      <input id="fullname" formControlName="fullname" class="form-control" />
+    </div>
+
+    <div class="mb-2">
+      <label for="username" class="form-label fw-semibold">Email address</label>
+      <input id="username" formControlName="username" class="form-control" />
+    </div>
+
+    <div class="mb-2">
+      <label for="password" class="form-label fw-semibold">Password</label>
+
+      <div class="input-group">
+        <!-- has-validation was-validated needs-validation -->
+        <input
+          type="{{ passwordVisible ? 'text' : 'password' }}"
+          id="password"
+          class="form-control"
+          formControlName="password"
+        />
+
+        <span class="input-group-text">
+          <button
+            class="bg-transparent border border-0 p-0"
+            type="button"
+            title="Toggle Password Visibility"
+            (click)="togglePasswordVisibility()"
+          >
+            <i class="bi bi-eye{{ passwordVisible ? '-slash' : '' }}"></i>
+          </button>
+        </span>
+      </div>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary mt-3 w-100"
+      [disabled]="form.invalid"
+    >
+      Login
+    </button>
+
+    <div class="mt-3 text-center">
+      <a
+        [routerLink]="
+          '/' + appRoutes.AUTH.route + '/' + authRoutes.SIGN_IN.route
+        "
+        class="link-opacity-100 pe-auto cursor-pointer"
+        >I already have an account</a
+      >
+    </div>
+  </div>
+</form>

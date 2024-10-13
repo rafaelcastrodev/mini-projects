@@ -1,0 +1,59 @@
+<div class="d-flex justify-content-between">
+  <h3>Task List</h3>
+  <div>
+    <a [routerLink]="'/'+appRoutes.TASKS.route+'/new'" class="btn me-2 btn-primary">
+      New Task
+    </a>
+    <a [routerLink]="'/'+appRoutes.DASHBOARD.route" class="btn btn-secondary">
+      <i class="bi bi-chevron-left"></i>Back
+    </a>
+  </div>
+</div>
+<hr />
+
+<loading-spinner *ngIf="!resource"/>
+
+<ng-container *ngIf="resource">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of resource.rows">
+        <td>{{ task.id }}</td>
+        <td>{{ task.description }}</td>
+        <td>
+          <button
+            (click)="clickOnAction(task)"
+            class="btn btn-outline-secondary"
+          >
+            <i class="bi bi-pencil"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+  <div
+    class="btn-toolbar"
+    role="toolbar"
+    aria-label="Toolbar with button groups"
+  >
+    <div class="btn-group me-2" role="group" aria-label="First group">
+      <button type="button" class="btn btn-secondary" (click)="gotoPage(0)">
+        1
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="gotoPage(1)">
+        2
+      </button>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="resource?.count === 0">
+  <div class="alert alert-info" role="alert">No tasks found.</div>
+</ng-container>

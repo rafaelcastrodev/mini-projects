@@ -1,0 +1,10 @@
+input[type='number'] {
+  font-size: 1.4rem;
+  letter-spacing: 0.3rem;
+}
+
+input[type='number']::placeholder {
+  color: var(--bs-gray-400);
+  font-size: 1.4rem;
+  letter-spacing: 0;
+}
